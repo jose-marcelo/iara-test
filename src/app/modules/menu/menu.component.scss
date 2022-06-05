@@ -1,0 +1,87 @@
+@import '../../styles/variables';
+
+.menu-page {
+  background-color: $light-white;
+  padding: 0 10%;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      height: 100%;
+      max-height: 90px;
+    }
+  }
+
+  &__cart {
+    background-color: $yellow;
+    color: $hard-gray;
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+    padding: 5px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+
+    span {
+      margin-right: 5px;
+    }
+
+    .cart-count {
+      position: absolute;
+      right: -8px;
+      top: -8px;
+      background-color: $red-warning;
+      color: $white;
+      font-size: .75em;
+      border-radius: 50%;
+      height: 20px;
+      width: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      padding-top: 1px;
+    }
+  }
+
+  &__tabs {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+
+    ul {
+      display: flex;
+      background-color: $light-gray;
+      display: flex;
+      background-color: hsl(0deg, 0%, 91%);
+      border-radius: 10px;
+      font-weight: 700;
+
+      li {
+        padding: 20px 30px;
+        cursor: pointer;
+      }
+
+      .active {
+        background-color: $green;
+        color: $white;
+      }
+
+      .pointer-events-none {
+        pointer-events: none;
+      }
+
+      .border-radius-left {
+        border-radius: 10px 0 0 10px;
+      }
+
+      .border-radius-rigth {
+        border-radius: 0 10px 10px 0;
+      }
+    }
+  }
+}

@@ -1,1 +1,7 @@
 @use './app/styles/configs/reset';
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+* {
+  font-family: 'Nunito', sans-serif;
+}

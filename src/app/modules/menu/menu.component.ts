@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
+  step: number = 1
+  progress: number = 1
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  changeStep(selectedStep: number) {
+    this.step = selectedStep
+    if (this.progress < this.step) {
+      this.progress++
+    }
+  }
+
+  nextStep() {
+
   }
 
 }

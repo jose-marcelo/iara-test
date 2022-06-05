@@ -1,1 +1,25 @@
-<p>menu works!</p>
+<div class="menu-page">
+  <div class="menu-page__header">
+    <img src="../../../assets/images/menu-logo.png" alt="Pizza logo">
+
+    <div class="menu-page__cart">
+      <span class="material-icons">
+        shopping_cart
+      </span>
+      Carrinho
+
+      <div *ngIf="false" class="cart-count">2</div>
+    </div>
+  </div>
+
+  <div class="menu-page__tabs">
+    <ul>
+      <li (click)="changeStep(1)" [ngClass]="{ 'active': step === 1 }" class="border-radius-left">Recheio</li>
+      <li (click)="changeStep(2)" [ngClass]="{ 'active': step === 2, 'pointer-events-none': progress < 2 }">Massa</li>
+      <li (click)="changeStep(3)" [ngClass]="{'active': step === 3, 'pointer-events-none': progress < 3}">Tamanho</li>
+      <li (click)="changeStep(4)" [ngClass]="{'active': step === 4, 'pointer-events-none': progress < 4}"
+        class="border-radius-rigth">Ingredientes</li>
+    </ul>
+  </div>
+
+</div>
