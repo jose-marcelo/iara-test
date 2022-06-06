@@ -1,7 +1,7 @@
 <div class="filling">
   <div class="filling__header">
     <h2>Recheios</h2>
-    <button class="btn-transparent" (click)="nextStep.emit()">
+    <button class="btn-transparent" (click)="goNextStep()">
       <span class="label">escolha a massa</span>
       <span class="material-icons">arrow_forward</span>
     </button>
@@ -47,7 +47,7 @@
             <p class="ingredients">{{ pizza.ingredients }}</p>
           </div>
 
-          <p class="price">{{ getPizzaPrice(pizza) }}</p>
+          <p class="price">R$ {{ getPizzaPrice(pizza) }}</p>
         </div>
       </div>
       <!-- Fim do card -->

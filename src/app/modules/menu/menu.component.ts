@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IPizzaModel } from '../../interfaces/pizza';
 
 @Component({
   selector: 'app-menu',
@@ -10,6 +11,12 @@ export class MenuComponent implements OnInit {
   step: number = 1
   progress: number = 1
 
+  pizzaModel: IPizzaModel = {
+    id: 0,
+    name: '',
+    price: 0,
+  }
+
   constructor() { }
 
   ngOnInit(): void {
@@ -20,10 +27,6 @@ export class MenuComponent implements OnInit {
     if (this.progress < this.step) {
       this.progress++
     }
-  }
-
-  nextStep() {
-
   }
 
 }

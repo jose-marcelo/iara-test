@@ -25,8 +25,13 @@
   <div class="menu-page__steps" [ngSwitch]="step">
 
     <app-filling *ngSwitchCase="1"
+      [pizzaModel]="pizzaModel"
       (nextStep)="changeStep(2)">
     </app-filling>
+
+    <app-pasta *ngSwitchCase="2"
+      (nextStep)="changeStep(3)">
+    </app-pasta>
   </div>
 
 </div>

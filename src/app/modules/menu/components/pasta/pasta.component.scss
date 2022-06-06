@@ -1,0 +1,36 @@
+@forward '../../../../styles/utils/menu';
+@import '../../../../styles/variables';
+
+.pasta {
+  margin-bottom: 30px;
+
+  &__header {
+    @extend %header;
+  }
+
+  &__card {
+    @extend %card;
+    justify-content: space-between;
+    height: 64px;
+
+    .select {
+      position: initial;
+      margin-right: 15px;
+    }
+
+    .type {
+      color: $brown;
+      font-size: 1.125em;
+      font-weight: 700;
+    }
+
+    .extra {
+      font-weight: 700;
+    }
+
+    .free {
+      font-weight: 700;
+      color: $green;
+    }
+  }
+}

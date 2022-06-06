@@ -1,5 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { IPizza } from 'src/app/interfaces/pizza';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { IFilling } from 'src/app/interfaces/pizza';
 
 @Component({
   selector: 'app-filling',
@@ -9,7 +9,7 @@ import { IPizza } from 'src/app/interfaces/pizza';
 
 export class FillingComponent implements OnInit {
 
-  pizzas: IPizza[] = [
+  pizzas: IFilling[] = [
     {
       id: 1,
       name: 'Muçarela',
@@ -66,6 +66,7 @@ export class FillingComponent implements OnInit {
     }
   ]
 
+  @Input() pizzaModel: any
   @Output() nextStep = new EventEmitter()
 
   pizzaSelected: number = 0
@@ -73,25 +74,31 @@ export class FillingComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.pizzaSelected = this.pizzaModel.id
   }
 
-  getPizzaPrice(pizza: IPizza): string {
+  getPizzaPrice(pizza: IFilling): string {
     if (pizza.discount) {
       const newPrice = pizza.price - (pizza.price * 0.2)
-      const priceSring = String(newPrice.toFixed(2)).replace('.', ',')
-      return `R$ ${priceSring}`
+      return String(newPrice.toFixed(2)).replace('.', ',')
     } else {
-      const priceString = String(pizza.price.toFixed(2)).replace('.', ',')
-      return `R$ ${priceString}`
+      return String(pizza.price.toFixed(2)).replace('.', ',')
     }
   }
 
   selectPizza(pizzaId: number) {
     this.pizzaSelected = pizzaId
+    this.pizzaModel.id = this.pizzaSelected
   }
 
   pizzaIsSelected(pizzaId: number): boolean {
     return this.pizzaSelected === pizzaId
+  }
+
+  goNextStep() {
+    if (this.pizzaSelected) {
+      this.nextStep.emit()
+    }
   }
 
 }

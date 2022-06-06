@@ -1,14 +1,9 @@
+@forward '../../../../styles/utils/menu';
 @import '../../../../styles/variables';
 
 .filling {
-  margin-top: 30px;
-
   &__header {
-    width: 100%;
-    max-width: 500px;
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto;
+    @extend %header;
   }
 
   &__cards {
@@ -16,62 +11,7 @@
 
     .pizza-card {
       height: 150px;
-      display: flex;
-      border-radius: 20px;
-      border: 3px solid $white;
-      background-color: $white;
-      box-shadow: 3px 3px 10px 3px $light-gray;
-      align-items: center;
-      padding: 10px 20px;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-
-      .flag {
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        position: absolute;
-        text-transform: uppercase;
-        font-size: .75em;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        line-height: 1;
-        font-weight: 700;
-        top: -8px;
-        right: -5px;
-        transform: rotate(25deg);
-
-        &--discount {
-          background-color: $brown;
-          color: $white;
-        }
-
-        &--selected {
-          background-color: $green;
-          color: $yellow;
-        }
-      }
-
-      .select {
-        width: 37px;
-        height: 37px;
-        border-radius: 50%;
-        background-color: $yellow;
-        position: absolute;
-        bottom: 7px;
-        right: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        &--green {
-          background-color: $green;
-          color: $white;
-        }
-      }
+      @extend %card;
 
       &__img {
         height: 100%;
@@ -131,6 +71,18 @@
 
     .border-green {
       border-color: $green;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .filling__cards {
+    .pizza-card {
+      padding: 10px;
+
+      &__img {
+        max-height: 70%;
+      }
     }
   }
 }
