@@ -1,0 +1,58 @@
+<div class="filling">
+  <div class="filling__header">
+    <h2>Recheios</h2>
+    <button class="btn-transparent" (click)="nextStep.emit()">
+      <span class="label">escolha a massa</span>
+      <span class="material-icons">arrow_forward</span>
+    </button>
+  </div>
+
+  <div class="filling__cards row gx-5">
+    <div *ngFor="let pizza of pizzas" class="mt-3 mb-3 col-lg-6 col-xxl-4">
+
+      <!-- Início do card de cada pizza -->
+      <div class="pizza-card" [ngClass]="{ 'border-brown': pizza.discount, 'border-green': pizzaIsSelected(pizza.id) }"
+        (click)="selectPizza(pizza.id)">
+
+        <!-- Flag de desconto e selecionado -->
+        <div [hidden]="!pizza.discount" class="flag flag--discount">pizza<br>do dia</div>
+        <div [hidden]="!pizzaIsSelected(pizza.id)" class="flag flag--selected">quero<br>esse!</div>
+
+        <!-- Ícone de adicionar ou selecionado -->
+        <div *ngIf="pizzaIsSelected(pizza.id); else notSelected">
+          <div class="select select--green">
+            <span class="material-icons">done</span>
+          </div>
+        </div>
+        <ng-template #notSelected>
+          <div class="select">
+            <span class="material-icons">add</span>
+          </div>
+        </ng-template>
+
+        <!-- Imagem da pizza -->
+        <div class="pizza-card__img">
+          <img [src]="pizza.image" [alt]="'Pizza de ' + pizza.name">
+        </div>
+
+        <!-- Conteúdo do card (estrelas, nome, ...) -->
+        <div class="pizza-card__content">
+          <div class="stars">
+            <span class="material-icons">star</span>
+            <p>{{ pizza.stars }}</p>
+          </div>
+
+          <div>
+            <p class="name">{{ pizza.name }}</p>
+            <p class="ingredients">{{ pizza.ingredients }}</p>
+          </div>
+
+          <p class="price">{{ getPizzaPrice(pizza) }}</p>
+        </div>
+      </div>
+      <!-- Fim do card -->
+
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,21 @@
+.btn-transparent {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: .875em;
+  display: flex;
+  align-items: center;
+  padding: 0;
+
+  .label {
+    padding-top: 2px;
+  }
+
+  .material-icons {
+    font-weight: 500;
+    font-size: 20px;
+    margin-left: 10px;
+  }
+}

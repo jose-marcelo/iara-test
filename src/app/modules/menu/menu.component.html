@@ -22,4 +22,11 @@
     </ul>
   </div>
 
+  <div class="menu-page__steps" [ngSwitch]="step">
+
+    <app-filling *ngSwitchCase="1"
+      (nextStep)="changeStep(2)">
+    </app-filling>
+  </div>
+
 </div>
