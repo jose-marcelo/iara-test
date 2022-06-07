@@ -30,8 +30,18 @@
     </app-filling>
 
     <app-pasta *ngSwitchCase="2"
+      [pizzaModel]="pizzaModel"
       (nextStep)="changeStep(3)">
     </app-pasta>
+
+    <app-size *ngSwitchCase="3"
+      [pizzaModel]="pizzaModel"
+      (nextStep)="changeStep(4)">
+    </app-size>
+
+    <app-ingredients *ngSwitchCase="4"
+      [pizzaModel]="pizzaModel">
+    </app-ingredients>
   </div>
 
 </div>

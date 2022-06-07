@@ -1,51 +1,49 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { IPasta } from '../../../../interfaces/pizza';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { initPizzaModel } from 'src/app/utils/pizza-util';
+import { IPasta, IPizzaModel } from '../../../../interfaces/pizza';
 
 @Component({
   selector: 'app-pasta',
   templateUrl: './pasta.component.html',
   styleUrls: ['./pasta.component.scss']
 })
-export class PastaComponent implements OnInit {
+export class PastaComponent {
 
   pastas: IPasta[] = [
     {
       id: 1,
-      type: 'Padrão',
+      name: 'Padrão',
       price: 0
     },
     {
       id: 2,
-      type: 'Fina',
+      name: 'Fina',
       price: 0
     },
     {
       id: 3,
-      type: 'Integral',
+      name: 'Integral',
       price: 5
     }
   ]
 
-  @Input() pizzaModel: any
+  @Input() pizzaModel: IPizzaModel
   @Output() nextStep = new EventEmitter()
 
-  pastaSelected: number = 0
-
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
+    this.pizzaModel = initPizzaModel()
   }
 
-  selectPasta(pastaId: number) {
-    this.pastaSelected = pastaId
+  selectPasta(pasta: IPasta) {
+    this.pizzaModel.pasta = pasta
   }
 
   pastaIsSelected(pastaId: number): boolean {
-    return this.pastaSelected === pastaId
+    return this.pizzaModel.pasta.id === pastaId
   }
 
   goNextStep(){
-    if (this.pastaSelected) {
+    if (this.pizzaModel.pasta.id) {
       this.nextStep.emit()
     }
   }

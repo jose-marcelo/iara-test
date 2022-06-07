@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { initPizzaModel } from 'src/app/utils/pizza-util';
 import { IPizzaModel } from '../../interfaces/pizza';
 
 @Component({
@@ -6,20 +7,15 @@ import { IPizzaModel } from '../../interfaces/pizza';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent {
 
   step: number = 1
   progress: number = 1
 
-  pizzaModel: IPizzaModel = {
-    id: 0,
-    name: '',
-    price: 0,
-  }
+  pizzaModel: IPizzaModel
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
+    this.pizzaModel = initPizzaModel()
   }
 
   changeStep(selectedStep: number) {

@@ -1,7 +1,7 @@
 @forward '../../../../styles/utils/menu';
 @import '../../../../styles/variables';
 
-.pasta {
+.ingredient {
   margin-bottom: 30px;
 
   &__header {
@@ -12,10 +12,14 @@
     @extend %card;
     justify-content: space-between;
     height: 64px;
+    cursor: default;
 
     .select {
       position: initial;
       margin-left: 15px;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
     }
 
     .type {
@@ -24,13 +28,17 @@
       font-weight: 700;
     }
 
-    .extra {
+    .price {
       font-weight: 700;
     }
 
-    .free {
-      font-weight: 700;
-      color: $green;
+    .included {
+      font-style: italic;
+    }
+
+    .delete {
+      color: $red-warning;
+      margin-left: 15px;
     }
   }
 }
