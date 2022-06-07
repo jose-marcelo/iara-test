@@ -1,0 +1,19 @@
+{
+  "pastas": [
+    {
+      "id": 1,
+      "name": "Padrão",
+      "price": 0
+    },
+    {
+      "id": 2,
+      "name": "Fina",
+      "price": 0
+    },
+    {
+      "id": 3,
+      "name": "Integral",
+      "price": 5
+    }
+  ]
+}

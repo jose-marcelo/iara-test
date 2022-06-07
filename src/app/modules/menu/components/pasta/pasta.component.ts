@@ -1,37 +1,32 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { Component, Output, EventEmitter, Input, OnInit } from '@angular/core';
+import { MenuService } from 'src/app/services/menu.service';
 import { initPizzaModel } from 'src/app/utils/pizza-util';
 import { IPasta, IPizzaModel } from '../../../../interfaces/pizza';
+import { initPasta } from '../../../../utils/pizza-util';
 
 @Component({
   selector: 'app-pasta',
   templateUrl: './pasta.component.html',
   styleUrls: ['./pasta.component.scss']
 })
-export class PastaComponent {
+export class PastaComponent implements OnInit {
 
-  pastas: IPasta[] = [
-    {
-      id: 1,
-      name: 'Padrão',
-      price: 0
-    },
-    {
-      id: 2,
-      name: 'Fina',
-      price: 0
-    },
-    {
-      id: 3,
-      name: 'Integral',
-      price: 5
-    }
-  ]
+  pastas: IPasta[]
 
   @Input() pizzaModel: IPizzaModel
   @Output() nextStep = new EventEmitter()
 
-  constructor() {
+  constructor(
+    private menuService: MenuService
+  ) {
     this.pizzaModel = initPizzaModel()
+    this.pastas = [initPasta()]
+  }
+
+  ngOnInit() {
+    this.menuService.getPastas().then(
+      response => { this.pastas = response }
+    )
   }
 
   selectPasta(pasta: IPasta) {

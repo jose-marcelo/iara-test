@@ -1,5 +1,6 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core';
-import { initPizzaModel } from 'src/app/utils/pizza-util';
+import { Component, Output, EventEmitter, Input, OnInit } from '@angular/core';
+import { MenuService } from 'src/app/services/menu.service';
+import { initPizzaModel, initSize } from 'src/app/utils/pizza-util';
 import { ISize, IPizzaModel } from '../../../../interfaces/pizza';
 
 @Component({
@@ -7,36 +8,24 @@ import { ISize, IPizzaModel } from '../../../../interfaces/pizza';
   templateUrl: './size.component.html',
   styleUrls: ['./size.component.scss']
 })
-export class SizeComponent {
+export class SizeComponent implements OnInit {
 
-  sizes: ISize[] = [
-    {
-      id: 1,
-      name: 'Broto',
-      price: 5
-    },
-    {
-      id: 2,
-      name: 'Médio',
-      price: 10
-    },
-    {
-      id: 3,
-      name: 'Grande',
-      price: 15
-    },
-    {
-      id: 4,
-      name: 'Extra grande',
-      price: 20
-    },
-  ]
+  sizes: ISize[]
 
   @Input() pizzaModel: IPizzaModel
   @Output() nextStep = new EventEmitter()
 
-  constructor() {
+  constructor(
+    private menuService: MenuService
+  ) {
     this.pizzaModel = initPizzaModel()
+    this.sizes = [initSize()]
+  }
+
+  ngOnInit() {
+    this.menuService.getSizes().then(
+      response => { this.sizes = response }
+    )
   }
 
   selectSize(size: ISize) {

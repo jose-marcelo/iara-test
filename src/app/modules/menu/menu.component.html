@@ -1,17 +1,4 @@
 <div class="menu-page">
-  <div class="menu-page__header">
-    <img src="../../../assets/images/menu-logo.png" alt="Pizza logo">
-
-    <div class="menu-page__cart">
-      <span class="material-icons">
-        shopping_cart
-      </span>
-      Carrinho
-
-      <div *ngIf="false" class="cart-count">2</div>
-    </div>
-  </div>
-
   <div class="menu-page__tabs">
     <ul>
       <li (click)="changeStep(1)" [ngClass]="{ 'active': step === 1 }" class="border-radius-left">Recheio</li>

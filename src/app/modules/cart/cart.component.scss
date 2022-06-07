@@ -1,0 +1,40 @@
+@import '../../styles/variables';
+
+.cart-page {
+  margin-top: 30px;
+
+  h2 { margin-bottom: 30px; }
+
+  &__items {
+    border-top: 1px solid $medium-gray;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 10px;
+    border-bottom: 1px solid $medium-gray;
+
+    .name {
+      color: $brown;
+      font-size: 1.375em;
+      font-weight: 700;
+    }
+
+    .ingredients {
+      font-size: .875em;
+    }
+
+    .price {
+      font-weight: 700;
+      font-size: 1.25em;
+    }
+
+    .delete {
+      margin-left: 20%;
+      color: $red-warning;
+      cursor: pointer;
+    }
+  }
+}

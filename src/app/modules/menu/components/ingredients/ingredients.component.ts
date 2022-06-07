@@ -3,6 +3,7 @@ import { IPizzaModel } from 'src/app/interfaces/pizza';
 import { IIngredients } from '../../../../interfaces/pizza';
 import { Router } from '@angular/router';
 import { initPizzaModel } from 'src/app/utils/pizza-util';
+import { CartService } from '../../../../services/cart.service';
 
 @Component({
   selector: 'app-ingredients',
@@ -11,75 +12,6 @@ import { initPizzaModel } from 'src/app/utils/pizza-util';
 })
 export class IngredientsComponent implements OnInit {
 
-  allIngredients: IIngredients[] = [
-    {
-      id: 1,
-      name: 'Queijo muçarela',
-      price: 6,
-      quantity: 1
-    },
-    {
-      id: 2,
-      name: 'Molho de tomate',
-      price: 2,
-      quantity: 1
-    },
-    {
-      id: 3,
-      name: 'Orégano',
-      price: 1,
-      quantity: 1
-    },
-    {
-      id: 4,
-      name: 'Presunto',
-      price: 5,
-      quantity: 1
-    },
-    {
-      id: 5,
-      name: 'Brócolis',
-      price: 4,
-      quantity: 1
-    },
-    {
-      id: 6,
-      name: 'Calabresa',
-      price: 4,
-      quantity: 1
-    },
-    {
-      id: 7,
-      name: 'Cebola',
-      price: 2,
-      quantity: 1
-    },
-    {
-      id: 8,
-      name: 'Manjericão',
-      price: 4,
-      quantity: 1
-    },
-    {
-      id: 9,
-      name: 'Ervilha',
-      price: 5,
-      quantity: 1
-    },
-    {
-      id: 10,
-      name: 'Ovo',
-      price: 5,
-      quantity: 1
-    },
-    {
-      id: 11,
-      name: 'Palmito',
-      price: 5,
-      quantity: 1
-    }
-  ]
-
   ingredients: IIngredients[] = []
 
   @Input() pizzaModel: IPizzaModel
@@ -87,7 +19,8 @@ export class IngredientsComponent implements OnInit {
 
 
   constructor(
-    private router: Router
+    private router: Router,
+    private cartService: CartService
   ) {
     this.pizzaModel = initPizzaModel()
   }
@@ -97,7 +30,14 @@ export class IngredientsComponent implements OnInit {
   }
 
   goToCartPage() {
-    console.log(this.pizzaModel)
-    // this.router.navigateByUrl('cart')
+    this.cartService.count++
+
+    window.localStorage.setItem(
+      `pizza${this.cartService.count}`,
+      JSON.stringify(this.pizzaModel)
+    )
+    window.localStorage.setItem('cartCount', String(this.cartService.count))
+
+    this.router.navigateByUrl('cart')
   }
 }

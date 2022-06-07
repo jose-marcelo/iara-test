@@ -1,0 +1,24 @@
+{
+  "sizes": [
+    {
+      "id": 1,
+      "name": "Broto",
+      "price": 5
+    },
+    {
+      "id": 2,
+      "name": "Médio",
+      "price": 10
+    },
+    {
+      "id": 3,
+      "name": "Grande",
+      "price": 15
+    },
+    {
+      "id": 4,
+      "name": "Extra grande",
+      "price": 20
+    }
+  ]
+}

@@ -1,1 +1,18 @@
-<router-outlet></router-outlet>
+<div class="backdrop">
+
+  <div class="header">
+    <img src="/assets/images/header-logo.png" alt="Pizza logo">
+
+    <div class="header__cart" (click)="goToCartPage()">
+      <span class="material-icons">
+        shopping_cart
+      </span>
+      Carrinho
+
+      <div *ngIf="cartService.count" class="cart-count">{{ cartService.count }}</div>
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>
+
+</div>

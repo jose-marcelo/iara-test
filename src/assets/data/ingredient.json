@@ -1,0 +1,70 @@
+{
+  "ingredients":[
+    {
+      "id": 1,
+      "name": "Queijo muçarela",
+      "price": 6,
+      "quantity": 1
+    },
+    {
+      "id": 2,
+      "name": "Molho de tomate",
+      "price": 2,
+      "quantity": 1
+    },
+    {
+      "id": 3,
+      "name": "Orégano",
+      "price": 1,
+      "quantity": 1
+    },
+    {
+      "id": 4,
+      "name": "Presunto",
+      "price": 5,
+      "quantity": 1
+    },
+    {
+      "id": 5,
+      "name": "Brócolis",
+      "price": 4,
+      "quantity": 1
+    },
+    {
+      "id": 6,
+      "name": "Calabresa",
+      "price": 4,
+      "quantity": 1
+    },
+    {
+      "id": 7,
+      "name": "Cebola",
+      "price": 2,
+      "quantity": 1
+    },
+    {
+      "id": 8,
+      "name": "Manjericão",
+      "price": 4,
+      "quantity": 1
+    },
+    {
+      "id": 9,
+      "name": "Ervilha",
+      "price": 5,
+      "quantity": 1
+    },
+    {
+      "id": 10,
+      "name": "Ovo",
+      "price": 5,
+      "quantity": 1
+    },
+    {
+      "id": 11,
+      "name": "Palmito",
+      "price": 5,
+      "quantity": 1
+    }
+  ]
+}
