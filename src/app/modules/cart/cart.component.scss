@@ -5,6 +5,12 @@
 
   h2 { margin-bottom: 30px; }
 
+  .price {
+    font-weight: 700;
+    font-size: 1.25em;
+    white-space: nowrap;
+  }
+
   &__items {
     border-top: 1px solid $medium-gray;
   }
@@ -13,7 +19,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 30px 10px;
+    padding: 30px 3%;
     border-bottom: 1px solid $medium-gray;
 
     .name {
@@ -26,15 +32,19 @@
       font-size: .875em;
     }
 
-    .price {
-      font-weight: 700;
-      font-size: 1.25em;
-    }
-
     .delete {
-      margin-left: 20%;
+      margin-top: 15px;
       color: $red-warning;
       cursor: pointer;
+      text-decoration: underline;
+      font-size: .875em;
     }
+  }
+
+  &__footer {
+    margin: 30px 3%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }

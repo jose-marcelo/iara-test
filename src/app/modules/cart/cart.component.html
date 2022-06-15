@@ -2,7 +2,7 @@
   <h2>Carrinho</h2>
 
   <div class="cart-page__items">
-    <div class="cart-page__item" *ngFor="let item of items">
+    <div class="cart-page__item" *ngFor="let item of items; let i = index">
       <div>
         <div class="name">{{ item.filling.name }}</div>
 
@@ -10,13 +10,20 @@
 
         <div><strong>Massa: </strong>{{ item.pasta.name }}</div>
         <div><strong>Tamanho: </strong>{{ item.size.name }}</div>
+
+        <button class="btn-transparent delete" (click)="deleteItem(i)">Excluir</button>
       </div>
 
-      <div class="d-flex">
-        <div class="price">R$ {{ getPizzaPrice(item) }}</div>
-
-        <span class="material-icons delete">delete</span>
-      </div>
+      <div class="price">R$ {{ getPizzaPrice(item).toFixed(2) }}</div>
     </div>
+  </div>
+
+  <div class="cart-page__footer">
+    <button class="btn-transparent goBack" (click)="backToMenu()">
+      <span class="material-icons">arrow_back</span>
+      <span class="label">Voltar para o cardápio</span>
+    </button>
+
+    <div class="price total">Total: R$ {{ getTotalPrice().toFixed(2) }}</div>
   </div>
 </div>

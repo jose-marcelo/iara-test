@@ -22,6 +22,7 @@ export interface IIngredients extends IPasta {
 }
 
 export interface IPizzaModel {
+  id: number,
   filling: IFilling,
   pasta: IPasta,
   size: ISize
